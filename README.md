@@ -1,2 +1,3 @@
-# landing-page-car
-# landing-page-car
+# Car Detailing Landing Page
+
+![Website Preview](assets/web_preview.png)
