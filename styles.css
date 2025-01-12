@@ -69,6 +69,26 @@ button:focus {
   outline-offset: 2px;
 }
 
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1000;
+  padding: 6px;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fdf9f2;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
 /* Hero section */
 #hero {
   height: 100dvh;
@@ -120,11 +140,12 @@ button:focus {
   font-weight: bold;
   text-transform: uppercase;
   color: #fdf9f2;
+  cursor: pointer;
 }
 
-/* .hero-container button:hover {
+.hero-container button:hover {
   background-color: rgb(2, 36, 36);
-} */
+}
 
 .testimonials {
   display: flex;
@@ -168,4 +189,65 @@ button:focus {
 
 .testimonials p {
   font-size: 0.7em;
+}
+
+@media (max-width: 1100px) {
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--background);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 1rem;
+    z-index: 999;
+  }
+
+  #nav-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: rotate(-45deg);
+    transform-origin: 22px 6.5px;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: rotate(45deg);
+    transform-origin: 22px -2.5px;
+  }
+
+  #nav-links.active {
+    display: flex;
+    box-shadow: 4px 7px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+@media (max-width: 900px) {
+  #hero {
+    align-items: flex-start;
+    padding-top: 7rem;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(13, 9, 2, 1) 0%,
+        rgba(13, 9, 2, 0) 50%
+      ),
+      url("https://scontent.fper10-1.fna.fbcdn.net/v/t1.6435-9/74270606_2588542297851256_4428721214776672256_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=o1Ul60T2PjgQ7kNvgHzQezr&_nc_zt=23&_nc_ht=scontent.fper10-1.fna&_nc_gid=ArMGFJTWqhW6He8m4iUa-Wf&oh=00_AYD4NwK388uU_SeYHNgggPBdFslcqVk-MjhRSXVXumM_IQ&oe=67AAB5B1");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 0% 0%;
+  }
+  .hero-container {
+    max-width: 100%;
+  }
 }
